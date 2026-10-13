@@ -1,6 +1,6 @@
 NAME = miniRT
 CC = cc
-C_FLAGS = -Wall -Wextra -Werror
+C_FLAGS = -Wall -Wextra -Werror -MMD -MP
 
 LIBFT_DIR = Libft
 LIBFT = $(LIBFT_DIR)/libft.a
@@ -26,7 +26,7 @@ $(LIBFT):
 	$(MAKE) -C $(LIBFT_DIR)
 
 $(NAME): $(OBJ)
-	$(CC) $(C_FLAGS) $(OBJ) $(LIBFT) -o $(NAME) $(RL_LIB)  -lreadline
+	$(CC) $(C_FLAGS) $(OBJ) $(LIBFT) -o $(NAME)
 
 %.o: %.c
 	$(CC) $(C_FLAGS) $(INCLUDES) -c $< -o $@
